@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive MCQ Quiz</title>
+  <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #0a192f, #172a45, #1f3a5a);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            background: #11213e;
+            margin-top: 3%;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: auto;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 11px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            color: #00d4ff;
+            text-transform: uppercase;
+        }
+
+        .question {
+            font-size: 18px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .options label {
+            display: block;
+            background: #0f3460;
+            padding: 12px;
+            text-align: left;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .options label:hover {
+            background: #00d4ff;
+            color: #11213e;
+        }
+
+        .btn {
+            background: #00d4ff;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            cursor: pointer;
+            font-size: 11px;
+            border-radius: 6px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #007BFF;
+            transform: scale(1.05);
+        }
+
+        .progress-container {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .circular-progress {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background: conic-gradient(#00d4ff 0deg, rgba(255, 255, 255, .1) 0deg);
+            box-shadow: 0 0 10px #00d4ff, 0 0 40px #00d4ff;
+            margin: auto;
+        }
+
+        .answers-container {
+            display: none;
+            margin-top: 20px;
+            background: #0f3460;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .correct {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .explanation {
+            font-size: 14px;
+            color: #bbb;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo"> CBU SOM </a>
+
+    
+        <h2> Physiology </h2>
+
+        <a href="#" class="nav"> ToToZ Collection </a>
+
+    </header>
+
+    <div class="quiz-container">
+        <h2> 2021 Test 1 </h2>
+
+        <div class="question" id="q1">
+            1. A membrane transport protein has a "transporter" mechanism if:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q1" value="a"> a) it forms an even pore through which a molecule can diffuse.</label><br>
+            <label><input type="radio" name="q1" value="b"> b) an electrochemical gradient is necessary for transport to occur.</label><br>
+            <label><input type="radio" name="q1" value="c"> c) it only allows transport down a concentration gradient.</label><br>
+            <label><input type="radio" name="q1" value="d"> d) molecules are transported in opposite directions across the membrane.</label><br>
+            <label><input type="radio" name="q1" value="e"> e) it binds to the molecule and changes shape during transport.</label>
+        </div>
+        
+        <div class="question" id="q2">
+            2. A "passive" membrane transport protein:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q2" value="a"> a) will require a direct source of energy for the transport to occur.</label><br>
+            <label><input type="radio" name="q2" value="b"> b) can only transport a molecule down a gradient.</label><br>
+            <label><input type="radio" name="q2" value="c"> c) is most likely to involve a "carrier" type transport mechanism.</label><br>
+            <label><input type="radio" name="q2" value="d"> d) can move a molecule "up" a gradient if a membrane potential exists.</label>
+        </div>
+        
+        <div class="question" id="q3">
+            3. Suppose you were to treat a normal mammalian cell with a substance that inhibits the Na-K ATPase. What would be the most immediate effect upon the cell?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q3" value="a"> a) There would be no change at all.</label><br>
+            <label><input type="radio" name="q3" value="b"> b) The cell's osmotic balance would be disrupted and the cell would begin to swell.</label><br>
+            <label><input type="radio" name="q3" value="c"> c) The cell membrane potential would immediately drop to zero.</label><br>
+            <label><input type="radio" name="q3" value="d"> d) The cell would very quickly run out of ATP.</label><br>
+            <label><input type="radio" name="q3" value="e"> e) The cell could not create an action potential.</label>
+        </div>
+        
+        <div class="question" id="q4">
+            4. Transport across a membrane is said to be "coupled" when
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q4" value="a"> a) two molecules are transported across the membrane in the same direction.</label><br>
+            <label><input type="radio" name="q4" value="b"> b) membrane transport is coupled to an energy source, such as ATP hydrolysis.</label><br>
+            <label><input type="radio" name="q4" value="c"> c) transport of one ion down its gradient provides the energy to transport another molecule against its gradient.</label><br>
+            <label><input type="radio" name="q4" value="d"> d) both the concentration gradient and membrane potential determine the rate of transport across the membrane.</label>
+        </div>
+        
+        <div class="question" id="q5">
+            5. A membrane transporter is said to be "gated" if:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q5" value="a"> a) requires the binding of ATP to open.</label><br>
+            <label><input type="radio" name="q5" value="b"> b) allows molecules to pass in only one direction.</label><br>
+            <label><input type="radio" name="q5" value="c"> c) participates in the formation of the membrane potential.</label><br>
+            <label><input type="radio" name="q5" value="d"> d) opens in response to a specific stimulus.</label>
+        </div>
+        
+        <div class="question" id="q6">
+            6. All of the following are functions of the cell membrane EXCEPT:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q6" value="a"> a) transmitting signals</label><br>
+            <label><input type="radio" name="q6" value="b"> b) participating in energy transfer</label><br>
+            <label><input type="radio" name="q6" value="c"> c) being freely permeable to all substances</label><br>
+            <label><input type="radio" name="q6" value="d"> d) regulating the passage of materials</label><br>
+            <label><input type="radio" name="q6" value="e"> e) participating in chemical reactions</label>
+        </div>
+        
+        <div class="question" id="q7">
+            7. Which of the following statements concerning phospholipids is FALSE?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q7" value="a"> a) They have two distinct regions, one strongly hydrophobic and the other strongly hydrophilic</label><br>
+            <label><input type="radio" name="q7" value="b"> b) They are amphipathic molecules</label><br>
+            <label><input type="radio" name="q7" value="c"> c) They have cylindrical shapes that allow them to associate with water most easily as a bilayer structure</label><br>
+            <label><input type="radio" name="q7" value="d"> d) They contain a polar organic group attached to a phosphate group</label><br>
+            <label><input type="radio" name="q7" value="e"> e) They contain three fatty acids chains</label>
+        </div>
+        
+        <div class="question" id="q8">
+            8. In a lipid bilayer, fatty acid tails face each other within the bilayer and form a region that is:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q8" value="a"> a) hypertonic</label><br>
+            <label><input type="radio" name="q8" value="b"> b) hyperonetic</label><br>
+            <label><input type="radio" name="q8" value="c"> c) hypotonic</label><br>
+            <label><input type="radio" name="q8" value="d"> d) hydrophilic</label><br>
+            <label><input type="radio" name="q8" value="e"> e) hydrophobic</label>
+        </div>
+        
+        <div class="question" id="q9">
+            9. A key discovery that weakened the Dawson-Danielli "sandwich" model of cell membranes was that:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q9" value="a"> a) membrane proteins form a solid sheet on either side of the phospholipid bilayer</label><br>
+            <label><input type="radio" name="q9" value="b"> b) membrane proteins form a solid sheet separating the phospholipid layer</label><br>
+            <label><input type="radio" name="q9" value="c"> c) the phospholipids do not associate with each other in the hydrophobic region of membranes</label><br>
+            <label><input type="radio" name="q9" value="d"> d) membrane proteins were not uniform and did not form flattened sheets</label><br>
+            <label><input type="radio" name="q9" value="e"> e) membrane proteins occurred in regular organized patterns on the surface of membranes</label>
+        </div>
+        
+        <div class="question" id="q10">
+            10. Who proposed the fluid mosaic model of cell membrane structure in 1972?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q10" value="a"> a) Dawson and Singer</label><br>
+            <label><input type="radio" name="q10" value="b"> b) Frye and Edidin</label><br>
+            <label><input type="radio" name="q10" value="c"> c) Brown and Goldstein</label><br>
+            <label><input type="radio" name="q10" value="d"> d) Singer and Nicholson</label><br>
+            <label><input type="radio" name="q10" value="e"> e) Dawson and Danielli</label>
+        </div>
+        
+        <div class="question" id="q11">
+            11. What is meant by the term "fluid mosaic model"?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q11" value="a"> a) It is the diffusion of lipid-soluble substances through the lipid bilayer</label><br>
+            <label><input type="radio" name="q11" value="b"> b) It is the movement of lipids and integral proteins within the lipid bilayer</label><br>
+            <label><input type="radio" name="q11" value="c"> c) It is the solubility of water in the membrane</label><br>
+            <label><input type="radio" name="q11" value="d"> d) It is the method of substance transport across the membrane</label><br>
+            <label><input type="radio" name="q11" value="e"> e) It is the movement of surface proteins through the membrane</label>
+        </div>
+        
+        <div class="question" id="q12">
+            12. Cholesterol within membrane functions as a(n) ______ through its interactions with both hydrophobic and hydrophilic parts of phospholipids.
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q12" value="a"> a) water blocker</label><br>
+            <label><input type="radio" name="q12" value="b"> b) pH buffer</label><br>
+            <label><input type="radio" name="q12" value="c"> c) energy source</label><br>
+            <label><input type="radio" name="q12" value="d"> d) temperature controller</label><br>
+            <label><input type="radio" name="q12" value="e"> e) fluidity buffer</label>
+        </div>
+        
+        <div class="question" id="q13">
+            13. Integral proteins:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q13" value="a"> a) are weakly bound to the surface of the membrane</label><br>
+            <label><input type="radio" name="q13" value="b"> b) are strongly bound to the cytosolic surface of the membrane</label><br>
+            <label><input type="radio" name="q13" value="c"> c) have no hydrophobic portions</label><br>
+            <label><input type="radio" name="q13" value="d"> d) are completely embedded within the lipid bilayer</label><br>
+            <label><input type="radio" name="q13" value="e"> e) are amphipathic</label>
+        </div>
+        
+        <div class="question" id="q14">
+            14. A transmembrane protein differs from other membrane proteins because it:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q14" value="a"> a) is constantly linked to the outer surface of the plasma membrane</label><br>
+            <label><input type="radio" name="q14" value="b"> b) is a glycoprotein with carbohydrates attached</label><br>
+            <label><input type="radio" name="q14" value="c"> c) is attached to the inside of the membrane by an ionic bond</label><br>
+            <label><input type="radio" name="q14" value="d"> d) completely extends through the membrane</label><br>
+            <label><input type="radio" name="q14" value="e"> e) is completely embedded within the membrane</label>
+        </div>
+        
+        <div class="question" id="q15">
+            15. Peripheral proteins are linked to either surface of the plasma membrane by:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q15" value="a"> a) converting diastolic acid into</label><br>
+            <label><input type="radio" name="q15" value="b"> b) associating with fatty acids through hydrophobic interactions</label><br>
+            <label><input type="radio" name="q15" value="c"> c) embedding in one side of the membrane and not extending through to the other side</label><br>
+            <label><input type="radio" name="q15" value="d"> d) associating with glycoproteins on the inner membrane surface</label><br>
+            <label><input type="radio" name="q15" value="e"> e) bonding to integral proteins through noncovalent interactions</label>
+        </div>
+        
+        <div class="question" id="q16">
+            16. Which of the following best explains the reason for the asymmetrically oriented structure of proteins in the cell membrane?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q16" value="a"> a) These proteins are manufactured by free ribosomes</label><br>
+            <label><input type="radio" name="q16" value="b"> b) Each type of protein has its own function</label><br>
+            <label><input type="radio" name="q16" value="c"> c) These proteins are threaded through the ER membrane into the ER lumen</label><br>
+            <label><input type="radio" name="q16" value="d"> d) Enzymes are needed to modify the carbohydrate chains of these proteins</label><br>
+            <label><input type="radio" name="q16" value="e"> e) These proteins are initially formed by ribosomes on the rough ER</label>
+        </div>
+        
+        <div class="question" id="q17">
+            17. Proteins that are destined to become associated with the outer surface of the plasma membrane are:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q17" value="a"> a) manufactured in the same way as protein hormones</label><br>
+            <label><input type="radio" name="q17" value="b"> b) manufactured in the same way as proteins destined to become external peripheral proteins</label><br>
+            <label><input type="radio" name="q17" value="c"> c) made by free ribosomes in the cytoplasm</label><br>
+            <label><input type="radio" name="q17" value="d"> d) made by ribosomes located on the rough endoplasmic reticulum</label><br>
+            <label><input type="radio" name="q17" value="e"> e) transported to the plasma membrane within a secretory vesicle</label>
+        </div>
+        
+        <div class="question" id="q18">
+            18. Which of the following statements explains the differences in number and types of peripheral proteins found on the inner and outer surfaces of cell membranes?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q18" value="a"> a) The function of the membrane differs on the inside and outside of the cell</label><br>
+            <label><input type="radio" name="q18" value="b"> b) Not all proteins can pass through the membrane and thus more accumulate on the inside</label><br>
+            <label><input type="radio" name="q18" value="c"> c) Proteins on the outside of the membrane are synthesized at a slower rate than proteins on the inside</label><br>
+            <label><input type="radio" name="q18" value="d"> d) Proteins on the outside of membrane are more extracellular and unable to penetrate the phospholipid bilayer and enter the ER</label><br>
+            <label><input type="radio" name="q18" value="e"> e) The external peripheral proteins are weakly attached to the membrane and are readily washed away</label>
+        </div>
+        
+        <div class="question" id="q19">
+            19. Biological membranes are normally permeable to:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q19" value="a"> a) large hydrophilic molecules</label><br>
+            <label><input type="radio" name="q19" value="b"> b) small hydrophilic molecules</label><br>
+            <label><input type="radio" name="q19" value="c"> c) small hydrophobic molecules</label><br>
+            <label><input type="radio" name="q19" value="d"> d) large hydrophobic molecules</label><br>
+            <label><input type="radio" name="q19" value="e"> e) None of these</label>
+        </div>
+        
+        <div class="question" id="q20">
+            20. Which of the following molecules is most likely to cross a cellular membrane by simple diffusion?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q20" value="a"> a) carbon dioxide</label><br>
+            <label><input type="radio" name="q20" value="b"> b) nitrogen</label><br>
+            <label><input type="radio" name="q20" value="c"> c) oxygen</label><br>
+            <label><input type="radio" name="q20" value="d"> d) potassium ion</label><br>
+            <label><input type="radio" name="q20" value="e"> e) water</label>
+        </div>
+        
+        <div class="question" id="q21">
+            21. Which of the following is not a characteristic of aquaporins?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q21" value="a"> a) They are transmembrane proteins</label><br>
+            <label><input type="radio" name="q21" value="b"> b) They facilitate the rapid transport of water through the plasma membrane</label><br>
+            <label><input type="radio" name="q21" value="c"> c) They are located in mammalian kidney tubules</label><br>
+            <label><input type="radio" name="q21" value="d"> d) They respond to specific hormones</label><br>
+            <label><input type="radio" name="q21" value="e"> e) All of these are functions associated with aquaporin</label>
+        </div>
+        
+        <div class="question" id="q22">
+            22. Simple diffusion may involve the movement of ______ through the ______ plasma membrane down a concentration gradient.
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q22" value="a"> a) small polar molecules; protein channels in</label><br>
+            <label><input type="radio" name="q22" value="b"> b) small nonpolar molecules; lipid bilayer of</label><br>
+            <label><input type="radio" name="q22" value="c"> c) large polar molecules; protein channels in</label><br>
+            <label><input type="radio" name="q22" value="d"> d) large nonpolar molecules; lipid bilayer of</label><br>
+            <label><input type="radio" name="q22" value="e"> e) water; aquaporins in</label>
+        </div>
+        
+        <div class="question" id="q23">
+            23. Which of the following membrane transport processes does NOT require the expenditure of energy by the cell?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q23" value="a"> a) active transport</label><br>
+            <label><input type="radio" name="q23" value="b"> b) osmosis</label><br>
+            <label><input type="radio" name="q23" value="c"> c) endocytosis</label><br>
+            <label><input type="radio" name="q23" value="d"> d) exocytosis</label><br>
+            <label><input type="radio" name="q23" value="e"> e) synthesis of more membrane</label>
+        </div>
+        
+        <div class="question" id="q24">
+            24. If the concentration of solutes in a cell is less than the concentration of solutes in the surrounding fluid, then the extracellular fluid is:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q24" value="a"> a) hypertonic</label><br>
+            <label><input type="radio" name="q24" value="b"> b) hypotonic</label><br>
+            <label><input type="radio" name="q24" value="c"> c) isotonic</label><br>
+            <label><input type="radio" name="q24" value="d"> d) stable</label><br>
+        </div>
+        
+        <div class="question" id="q25">
+            25. The higher the concentration of solute in a solution, the ______ the effective water concentration and the ______ the osmotic pressure.
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q25" value="a"> a) lower; lower</label><br>
+            <label><input type="radio" name="q25" value="b"> b) lower; higher</label><br>
+            <label><input type="radio" name="q25" value="c"> c) higher; higher</label><br>
+            <label><input type="radio" name="q25" value="d"> d) higher; lower</label><br>
+            <label><input type="radio" name="q25" value="e"> e) Answer cannot be determined from the information provided</label>
+        </div>
+        
+        <div class="question" id="q26">
+            26. Solutions that are isotonic:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q26" value="a"> a) are not in dynamic equilibrium</label><br>
+            <label><input type="radio" name="q26" value="b"> b) have equal concentrations of solute and water</label><br>
+            <label><input type="radio" name="q26" value="c"> c) have equal concentrations of solute but not water</label><br>
+            <label><input type="radio" name="q26" value="d"> d) have equal concentrations of water but not solute</label><br>
+            <label><input type="radio" name="q26" value="e"> e) will exhibit a net movement of water from one solution to the other</label>
+        </div>
+        
+        <div class="question" id="q27">
+            27. A patient who has had a severe hemorrhage accidentally receives a large transfusion of distilled water directly into a major blood vessel. You would expect this mistake to:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q27" value="a"> a) have no immediate effect as long as the water is free of bacteria</label><br>
+            <label><input type="radio" name="q27" value="b"> b) have serious, perhaps fatal consequences because there would be too much fluid to pump</label><br>
+            <label><input type="radio" name="q27" value="c"> c) have serious, perhaps fatal consequences because the red blood cells could shrink</label><br>
+            <label><input type="radio" name="q27" value="d"> d) have serious, perhaps fatal consequences because the red blood cells could swell and burst</label><br>
+            <label><input type="radio" name="q27" value="e"> e) have no serious effect because the kidney could quickly eliminate excess water</label>
+        </div>
+        
+        <div class="question" id="q28">
+            28. A plant cell placed in a hypertonic solution will:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q28" value="a"> a) remain unchanged</label><br>
+            <label><input type="radio" name="q28" value="b"> b) undergo lysis</label><br>
+            <label><input type="radio" name="q28" value="c"> c) undergo plasmolysis</label><br>
+            <label><input type="radio" name="q28" value="d"> d) swell slightly</label><br>
+            <label><input type="radio" name="q28" value="e"> e) become turgid</label>
+        </div>
+        
+        <div class="question" id="q29">
+            29. Penicillin is toxic to certain dividing bacterial cells because it prevents cell wall formation, causing the cell to burst. This indicates that the bacteria live in:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q29" value="a"> a) a hypotonic medium</label><br>
+            <label><input type="radio" name="q29" value="b"> b) a hypertonic medium</label><br>
+            <label><input type="radio" name="q29" value="c"> c) an isotonic medium</label><br>
+        </div>
+        
+        <div class="question" id="q30">
+            30. A wilted flower placed in a vase of water for several hours became stiff and stood erect. When placed in a salt solution, it wilted. From this information we can say that the cells of the flower are:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q30" value="a"> a) hypotonic to both fresh water and the salt solution</label><br>
+            <label><input type="radio" name="q30" value="b"> b) hypertonic to both the fresh water and the salt solution</label><br>
+            <label><input type="radio" name="q30" value="c"> c) hypertonic to fresh water but hypotonic to the salt solution</label><br>
+            <label><input type="radio" name="q30" value="d"> d) hypotonic to fresh water but hypertonic to the salt solution</label><br>
+            <label><input type="radio" name="q30" value="e"> e) isotonic to fresh water but hypotonic to the salt solution</label>
+        </div>
+        
+        <div class="question" id="q31">
+            31. Facilitated diffusion:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q31" value="a"> a) requires a transmembrane protein</label><br>
+            <label><input type="radio" name="q31" value="b"> b) requires ATP</label><br>
+            <label><input type="radio" name="q31" value="c"> c) can move molecules against a concentration gradient</label><br>
+            <label><input type="radio" name="q31" value="d"> d) is typically used to transport small nonpolar molecules</label><br>
+            <label><input type="radio" name="q31" value="e"> e) All of these</label>
+        </div>
+        
+        <div class="question" id="q32">
+            32. Which of the following are forms of carrier-mediated transport?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q32" value="a"> a) Facilitated diffusion only</label><br>
+            <label><input type="radio" name="q32" value="b"> b) Carrier-mediated active transport only</label><br>
+            <label><input type="radio" name="q32" value="c"> c) Osmosis only</label><br>
+            <label><input type="radio" name="q32" value="d"> d) Both facilitated diffusion and carrier-mediated active transport</label><br>
+            <label><input type="radio" name="q32" value="e"> e) Facilitated diffusion, carrier-mediated active transport, and osmosis</label>
+        </div>
+        
+        <div class="question" id="q33">
+            33. Although glucose molecules constantly diffuse into a cell along their concentration gradient, equilibrium is never reached and glucose continues to enter the cell. This is a direct result of:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q33" value="a"> a) the very fast turnover rate of glucose metabolism</label><br>
+            <label><input type="radio" name="q33" value="b"> b) the rapid and continuous intracellular formation of glucose phosphates</label><br>
+            <label><input type="radio" name="q33" value="c"> c) the active transport of glucose</label><br>
+            <label><input type="radio" name="q33" value="d"> d) the ability of the cell to engulf glucose by pinocytosis</label><br>
+        </div>
+        
+        <div class="question" id="q34">
+            34. Studies of glucose transport in liposomes have revealed that:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q34" value="a"> a) glucose is transported against a concentration gradient</label><br>
+            <label><input type="radio" name="q34" value="b"> b) the binding of glucose triggers a conformational change in the carrier protein</label><br>
+            <label><input type="radio" name="q34" value="c"> c) the transport of solutes via carrier proteins is faster than via channel proteins</label><br>
+            <label><input type="radio" name="q34" value="d"> d) glucose phosphates move readily across the membrane by simple diffusion</label><br>
+            <label><input type="radio" name="q34" value="e"> e) glucose moves readily across the membrane by simple diffusion</label>
+        </div>
+        
+        <div class="question" id="q35">
+            35. A bacterium containing sodium ions at a concentration of 0.1 mM lives in a medium containing sodium ions at 0.005 mM. Evidently, sodium ions are entering the cell by:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q35" value="a"> a) active transport</label><br>
+            <label><input type="radio" name="q35" value="b"> b) endocytosis</label><br>
+            <label><input type="radio" name="q35" value="c"> c) diffusion</label><br>
+            <label><input type="radio" name="q35" value="d"> d) facilitated diffusion</label><br>
+            <label><input type="radio" name="q35" value="e"> e) osmosis</label>
+        </div>
+        
+        <div class="question" id="q36">
+            36. Which of the following statements about the sodium-potassium pump is true?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q36" value="a"> a) It transports hydrogen ions out of the cell</label><br>
+            <label><input type="radio" name="q36" value="b"> b) It transports 3 sodium ions out of the cell in exchange for 2 potassium ions</label><br>
+            <label><input type="radio" name="q36" value="c"> c) It transports 2 sodium ions out of the cell in exchange for 2 potassium ions</label><br>
+            <label><input type="radio" name="q36" value="d"> d) It transports 3 sodium ions out of the cell in exchange for 3 potassium ions</label><br>
+            <label><input type="radio" name="q36" value="e"> e) It transports water directly out of the cell</label>
+        </div>
+        
+        <div class="question" id="q37">
+            37. In the mechanism of action of a proton pump, the role of ATP is to:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q37" value="a"> a) cause a proton to bind to a carbohydrate</label><br>
+            <label><input type="radio" name="q37" value="b"> b) cause a cell to take up protons by endocytosis</label><br>
+            <label><input type="radio" name="q37" value="c"> c) cause a cell to release protons by exocytosis</label><br>
+            <label><input type="radio" name="q37" value="d"> d) phosphorylate the pump protein to change its conformation</label><br>
+            <label><input type="radio" name="q37" value="e"> e) directly transport protons across the membrane</label>
+        </div>
+        
+        <div class="question" id="q38">
+            38. In the cotransport of glucose and sodium ions:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q38" value="a"> a) glucose molecules are transported down their concentration gradient</label><br>
+            <label><input type="radio" name="q38" value="b"> b) sodium ions are transported down their concentration gradient</label><br>
+            <label><input type="radio" name="q38" value="c"> c) the transport of glucose powers the transport of sodium</label><br>
+            <label><input type="radio" name="q38" value="d"> d) ATP causes a conformational change in the carrier protein</label><br>
+            <label><input type="radio" name="q38" value="e"> e) an antiport carrier protein is involved</label>
+        </div>
+        
+        <div class="question" id="q39">
+            39. A person has a genetic disease that prevents the phospholipids in the plasma membrane of white blood cells from freely moving within the cell. How would this disease affect phagocytosis?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q39" value="a"> a) Lysosomes would not be formed</label><br>
+            <label><input type="radio" name="q39" value="b"> b) Facilitated diffusion would not occur</label><br>
+            <label><input type="radio" name="q39" value="c"> c) Lysosomes would be formed lacking hydrolytic enzymes</label><br>
+            <label><input type="radio" name="q39" value="d"> d) The phagocytic vacuoles would not fuse with the lysosome</label><br>
+            <label><input type="radio" name="q39" value="e"> e) Endocytosis would not occur</label>
+        </div>
+        
+        <div class="question" id="q40">
+            40. Phagocytosis:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q40" value="a"> a) is engulfment of large particles by the cell</label><br>
+            <label><input type="radio" name="q40" value="b"> b) occurs in prokaryotes and algae but not in more complex organisms</label><br>
+            <label><input type="radio" name="q40" value="c"> c) involves the specific binding of molecules to receptors on the cell surface</label><br>
+            <label><input type="radio" name="q40" value="d"> d) is the non-specific uptake of fluids by pinching inward of the plasma membrane</label><br>
+            <label><input type="radio" name="q40" value="e"> e) is movement of molecules against the concentration gradient through a permeable membrane</label>
+        </div>
+        
+        <div class="question" id="q41">
+            41. Receptor-mediated endocytosis:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q41" value="a"> a) is a passive process</label><br>
+            <label><input type="radio" name="q41" value="b"> b) involves only membrane transport proteins</label><br>
+            <label><input type="radio" name="q41" value="c"> c) brings about the selective uptake of materials by enclosing them in membranous vesicles</label><br>
+            <label><input type="radio" name="q41" value="d"> d) does not require energy</label><br>
+            <label><input type="radio" name="q41" value="e"> e) is most likely to be found in cells that release large amounts of hormones</label>
+        </div>
+        
+        <div class="question" id="q42">
+            42. A perinuclear clear area (Hof) in a cell with prominent cytoplasmic basophilia likely represents the intracytoplasmic location of:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q42" value="a"> a) The Golgi apparatus</label><br>
+            <label><input type="radio" name="q42" value="b"> b) Terminal cisternae of granular endoplasmic reticulum</label><br>
+            <label><input type="radio" name="q42" value="c"> c) Centriolar replication</label><br>
+            <label><input type="radio" name="q42" value="d"> d) Zymogen granules</label><br>
+            <label><input type="radio" name="q42" value="e"> e) Aggregates of lipofuscin granules</label>
+        </div>
+        
+        <div class="question" id="q43">
+            43. Myosin moves along microfilaments through interactions with ______ and microtubule motors move along microtubules through interaction with ______.
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q43" value="a"> a) actin, myosin</label><br>
+            <label><input type="radio" name="q43" value="b"> b) kinesin, myosin</label><br>
+            <label><input type="radio" name="q43" value="c"> c) actin, tubulin</label><br>
+            <label><input type="radio" name="q43" value="d"> d) myosin, kinesin</label><br>
+            <label><input type="radio" name="q43" value="e"> e) tubulin, kinesin</label>
+        </div>
+        
+        <div class="question" id="q44">
+            44. Primary lysosomes contain:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="q44" value="a"> a) Nutrient glycogen particles</label><br>
+            <label><input type="radio" name="q44" value="b"> b) Acid phosphatases</label><br>
+            <label><input type="radio" name="q44" value="c"> c) Catalase</label><br>
+            <label><input type="radio" name="q44" value="d"> d) Lipofuscin pigment</label><br>
+            <label><input type="radio" name="q44" value="e"> e) RNA</label>
+        </div>
+
+
+
+
+
+
+        <button class="btn" onclick="submitQuiz()">Submit Quiz</button>
+
+        <div class="progress-container">
+            <h3>Your Score:</h3>
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+            <p class="score-text"></p>
+            <button class="btn" onclick="showAnswers()">Show Answers</button>
+            <button class="btn" onclick="exitQuiz()">Exit Quiz</button>
+            <button class="btn" onclick="restartQuiz()">Try Again</button>
+        </div>
+
+        <div class="answers-container" id="answers">
+            <h3>Correct Answers & Explanations</h3>
+            <p><span class="correct">Q1: it binds to the molecule and changes shape during transport.</span> A transporter mechanism involves the protein binding to the molecule and undergoing conformational changes to transport it across the membrane.</p><br>
+
+            <p><span class="correct">Q2: can only transport a molecule down a gradient.</span> Passive transport proteins facilitate movement down a concentration gradient without energy input.</p><br>
+            
+            <p><span class="correct">Q3: The cell's osmotic balance would be disrupted and the cell would begin to swell.</span> Inhibition of Na-K ATPase disrupts ion balance, leading to water influx and swelling.</p><br>
+            
+            <p><span class="correct">Q4: transport of one ion down its gradient provides the energy to transport another molecule against its gradient.</span> Coupled transport uses the energy from one molecule moving down its gradient to power transport of another against its gradient.</p><br>
+            
+            <p><span class="correct">Q5: opens in response to a specific stimulus.</span> Gated channels open or close in response to specific stimuli like voltage changes or ligand binding.</p><br>
+            
+            <p><span class="correct">Q6: being freely permeable to all substances</span> Cell membranes are selectively permeable, not freely permeable to all substances.</p><br>
+            
+            <p><span class="correct">Q7: They contain three fatty acids chains</span> Phospholipids contain two fatty acid chains, not three (triacylglycerols have three).</p><br>
+            
+            <p><span class="correct">Q8: hydrophobic</span> The fatty acid tails form a hydrophobic core that excludes water.</p><br>
+            
+            <p><span class="correct">Q9: membrane proteins were not uniform and did not form flattened sheets</span> This discovery showed proteins were globular and asymmetrically distributed, contradicting the sandwich model.</p><br>
+            
+            <p><span class="correct">Q10: Singer and Nicholson</span> They proposed the fluid mosaic model in 1972.</p><br>
+            
+            <p><span class="correct">Q11: It is the movement of lipids and integral proteins within the lipid bilayer</span> The fluid mosaic model describes the dynamic nature of membrane components.</p><br>
+            
+            <p><span class="correct">Q12: fluidity buffer</span> Cholesterol maintains optimal membrane fluidity across temperature changes.</p><br>
+            
+            <p><span class="correct">Q13: are amphipathic</span> Integral proteins have both hydrophobic and hydrophilic regions, allowing them to span the membrane.</p><br>
+            
+            <p><span class="correct">Q14: completely extends through the membrane</span> Transmembrane proteins span the entire membrane, unlike other membrane proteins that may be only partially embedded.</p><br>
+            
+            <p><span class="correct">Q15: bonding to integral proteins through noncovalent interactions</span> Peripheral proteins are attached to membrane surfaces through noncovalent bonds with integral proteins or lipid head groups.</p><br>
+            
+            <p><span class="correct">Q16: These proteins are threaded through the ER membrane into the ER lumen</span> The asymmetric orientation results from how proteins are inserted into the ER membrane during synthesis.</p><br>
+            
+            <p><span class="correct">Q17: made by ribosomes located on the rough endoplasmic reticulum</span> Membrane-associated proteins are synthesized by RER ribosomes and processed through the endomembrane system.</p><br>
+            
+            <p><span class="correct">Q18: The function of the membrane differs on the inside and outside of the cell</span> Different protein compositions reflect distinct functional requirements at each membrane surface.</p><br>
+            
+            <p><span class="correct">Q19: small hydrophobic molecules</span> Membranes are most permeable to small, nonpolar molecules that can dissolve in the lipid bilayer.</p><br>
+            
+            <p><span class="correct">Q20: oxygen</span> Small nonpolar molecules like oxygen diffuse most easily through the lipid bilayer.</p><br>
+            
+            <p><span class="correct">Q21: They respond to specific hormones</span> Aquaporins are water channels that don't typically respond to hormonal regulation.</p><br>
+            
+            <p><span class="correct">Q22: small nonpolar molecules; lipid bilayer of</span> Small nonpolar molecules diffuse directly through the lipid bilayer.</p><br>
+            
+            <p><span class="correct">Q23: osmosis</span> Osmosis is a passive process that doesn't require cellular energy.</p><br>
+            
+            <p><span class="correct">Q24: hypertonic</span> When extracellular fluid has higher solute concentration, it's hypertonic relative to the cell.</p><br>
+            
+            <p><span class="correct">Q25: lower; higher</span> More solute means less free water and greater osmotic pressure.</p><br>
+            
+            <p><span class="correct">Q26: have equal concentrations of solute but not water</span> Isotonic solutions have equal solute concentrations but may differ in water concentration.</p><br>
+            
+            <p><span class="correct">Q27: have serious, perhaps fatal consequences because the red blood cells could swell and burst</span> Distilled water is hypotonic and would cause hemolysis.</p><br>
+            
+            <p><span class="correct">Q28: undergo plasmolysis</span> Plant cells lose water and shrink away from cell walls in hypertonic solutions.</p><br>
+            
+            <p><span class="correct">Q29: a hypotonic medium</span> Without cell walls, bacteria would burst in hypotonic environments.</p><br>
+            
+            <p><span class="correct">Q30: hypertonic to fresh water but hypotonic to the salt solution</span> The cells gained water in fresh water (hypertonic to it) and lost water in salt solution (hypotonic to it).</p><br>
+            
+            <p><span class="correct">Q31: requires a transmembrane protein</span> Facilitated diffusion uses transport proteins but doesn't require energy.</p><br>
+            
+            <p><span class="correct">Q32: Both facilitated diffusion and carrier-mediated active transport</span> These are the two forms of carrier-mediated transport.</p><br>
+            
+            <p><span class="correct">Q33: the rapid and continuous intracellular formation of glucose phosphates</span> Glucose phosphorylation maintains the concentration gradient.</p><br>
+            
+            <p><span class="correct">Q34: the binding of glucose triggers a conformational change in the carrier protein</span> This is characteristic of carrier-mediated transport.</p><br>
+            
+            <p><span class="correct">Q35: active transport</span> Sodium is moving against its concentration gradient.</p><br>
+            
+            <p><span class="correct">Q36: It transports 3 sodium ions out of the cell in exchange for 2 potassium ions</span> This is the standard stoichiometry of the Na+/K+ pump.</p><br>
+            
+            <p><span class="correct">Q37: phosphorylate the pump protein to change its conformation</span> ATP provides energy by phosphorylating the pump.</p><br>
+            
+            <p><span class="correct">Q38: sodium ions are transported down their concentration gradient</span> Sodium-glucose cotransport uses the sodium gradient to power glucose uptake.</p><br>
+            
+            <p><span class="correct">Q39: The phagocytic vacuoles would not fuse with the lysosome</span> Membrane fluidity is required for vesicle fusion during phagocytosis.</p><br>
+            
+            <p><span class="correct">Q40: is engulfment of large particles by the cell</span> Phagocytosis is the process of engulfing large particles or microorganisms.</p><br>
+            
+            <p><span class="correct">Q41: brings about the selective uptake of materials by enclosing them in membranous vesicles</span> Receptor-mediated endocytosis is selective and forms vesicles.</p><br>
+            
+            <p><span class="correct">Q42: The Golgi apparatus</span> The perinuclear clear zone (Hof) typically represents the Golgi apparatus location.</p><br>
+            
+            <p><span class="correct">Q43: actin, tubulin</span> Myosin moves along actin microfilaments, while kinesin moves along tubulin microtubules.</p><br>
+            
+            <p><span class="correct">Q44: Acid phosphatases</span> Primary lysosomes contain hydrolytic enzymes like acid phosphatase.</p><br>
+
+        </div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            let score = 0;
+            let totalQuestions = 20;
+
+            let answers = {
+                q1: "e",
+                q2: "b",
+                q3: "b",
+                q4: "c",
+                q5: "d",
+                q6: "c",
+                q7: "e",
+                q8: "e",
+                q9: "d",
+                q10: "d",
+                q11: "b",
+                q12: "e",
+                q13: "e",
+                q14: "d",
+                q15: "e",
+                q16: "c",
+                q17: "d",
+                q18: "a",
+                q19: "c",
+                q20: "c",
+                q21: "d",
+                q22: "b",
+                q23: "b",
+                q24: "a",
+                q25: "b",
+                q26: "c",
+                q27: "d",
+                q28: "c",
+                q29: "a",
+                q30: "c",
+                q31: "a",
+                q32: "d",
+                q33: "b",
+                q34: "b",
+                q35: "a",
+                q36: "b",
+                q37: "d",
+                q38: "b",
+                q39: "d",
+                q40: "a",
+                q41: "c",
+                q42: "a",
+                q43: "c",
+                q44: "b",
+            };
+
+            for (let question in answers) {
+                let selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+
+            let percentage = (score / totalQuestions) * 100;
+
+            document.querySelector(".progress-container").style.display = "block";
+            animateScore(percentage, score, totalQuestions);
+        }
+
+        function animateScore(percentage, score, totalQuestions) {
+            let progressValue = 0;
+            let speed = 20;
+
+            const progressInterval = setInterval(() => {
+                if (progressValue >= percentage) {
+                    clearInterval(progressInterval);
+                    return;
+                }
+
+                progressValue++;
+                document.querySelector('.progress-value').textContent = `${progressValue}%`;
+                document.querySelector('.circular-progress').style.background = `conic-gradient(
+                    #00d4ff ${progressValue * 3.6}deg, 
+                    rgba(255, 255, 255, .1) ${progressValue * 3.6}deg
+                )`;
+
+                document.querySelector('.score-text').textContent = `Your Score: ${score} out of ${totalQuestions}`;
+            }, speed);
+        }
+
+        function restartQuiz() { window.location.reload(); }
+        function exitQuiz() { window.location.href = '#'; }
+        function showAnswers() {
+            document.getElementById("answers").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
